@@ -16,9 +16,22 @@ class Test_Sudoku(unittest.TestCase):
         game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79').ingresar(0, 2)
         self.assertFalse(game)
 
-    def test_verificar_valores_1(self):
-        game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79').verificar_valores(0,2 )
+    def test_valores_tablero_1(self):
+        game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79').valores_tablero(0,0,3)
         self.assertFalse(game)
+
+    def test_verificar_columna_fila_1(self):
+        game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79').verificar_columna_fila(0,0,5)
+        self.assertFalse(game)
+
+    def test_verificar_columna_fila_2(self):
+        game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79').verificar_columna_fila(1,1,4)
+        self.assertTrue(game)
+
+    def test_verificar_submatriz(self):
+        game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79').verificar_submatriz(4,4,1)
+        self.assertTrue(game)
+
 
 
 if __name__ == '__main__':
