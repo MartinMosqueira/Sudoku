@@ -6,10 +6,15 @@ class sudoku():
         self.Tablero = [ [  lista[i+(j*9)]  for j in range(fila) ] for i in range(fila)]
         self.valores_fijos = [ [  lista[i+(j*9)]  for j in range(fila) ] for i in range(fila)]
 
+    def mostar(self):
+        print(self.Tablero)
+
     def ingresar(self, x, y):
         if x <= 8 and y <= 8:
             if x >= 0 and y >= 0:
                 return True
+            else:
+                return False
         else:
             return False
 
@@ -20,7 +25,7 @@ class sudoku():
             return False
 
     def verificar_columna_fila(self, x, y, z):
-        contador=0
+        contador = 0
         for i in range(9):
             if self.Tablero[i][x] == str(z):
                 contador=contador+1
@@ -47,9 +52,6 @@ class sudoku():
             return True
         else:
             return False
-
-    def mostar(self):
-        print(self.Tablero)
 
     def run_sudoku(self, x, y, z):
 

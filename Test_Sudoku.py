@@ -3,10 +3,10 @@ from sudoku import sudoku
 
 class Test_Sudoku(unittest.TestCase):
 
-    #def test_sudoku_isover(self):
-        #game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79')
-        #game.mostar()
-        #self.assertTrue(game)
+    def test_sudoku_isover(self):
+        game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79')
+        game.mostar()
+        self.assertTrue(game)
 
     def test_ingresar_1(self):
         game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79')
@@ -15,8 +15,13 @@ class Test_Sudoku(unittest.TestCase):
 
     def test_ingresar_2(self):
         game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79')
-        resultado = game.ingresar(0, 2)
-        self.assertTrue(resultado)
+        resultado = game.ingresar(0, 20)
+        self.assertFalse(resultado)
+
+    def test_ingresar_3(self):
+        game = sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79')
+        resultado = game.ingresar(-4, 8)
+        self.assertFalse(resultado)
 
     def test_valores_tablero_1(self):
         game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79')
@@ -47,6 +52,7 @@ class Test_Sudoku(unittest.TestCase):
         game=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79')
         resultado = game.verificar_submatriz(2,4,2)
         self.assertTrue(resultado)
+
 
 
 if __name__ == '__main__':

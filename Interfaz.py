@@ -12,18 +12,30 @@ def main():
             print(a)
             a = ''
 
-        x = input('\nfila: ')
-        y = input('columna: ')
-        z = input('numero: ')
+        while True:
+            try:
+                x = int(input('\nfila: '))
+                y = int(input('columna: '))
+                z = int(input('numero: '))
+                break
 
-        interfaz.run_sudoku(int(x), int(y), int(z))
+            except ValueError:
+                print('El valor ingresado no es entero')
 
-        for i in range(9):
-            for j in range(9):
-                a += str(interfaz.Tablero[j][i])+'\t'
-            print(a)
-            a = ''
+        interfaz.run_sudoku(x, y, z)
 
+        if interfaz.ingresar(x, y) == False:
+            print('\nValores fuera de rango')
+            input('Pulsa una tecla para continuar...\n')
+
+        if interfaz.ingresar(x, y) == True:
+            if interfaz.valores_tablero(x, y) == False:
+                print('\nPosicion fija del tablero')
+                input('Pulsa una tecla para continuar...\n')
+
+        #if interfaz.verificar_columna_fila(x,y,z)  == False:
+            #print('\nEl valor se encuentra en la fila o columna')
+            #input('Pulsa una tecla para continuar...\n')
 
         for i in range(9):
             for j in range(9):
@@ -32,4 +44,7 @@ def main():
         if contador == 0:
             print('Gracias por jugar')
             break
+        contador = 0
+
+
 main()
