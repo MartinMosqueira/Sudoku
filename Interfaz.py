@@ -24,18 +24,20 @@ def main():
 
         interfaz.run_sudoku(x, y, z)
 
-        if interfaz.ingresar(x, y) == False:
+        if interfaz.ingresar(x, y, z) == False:
             print('\nValores fuera de rango')
             input('Pulsa una tecla para continuar...\n')
 
-        if interfaz.ingresar(x, y) == True:
+        if interfaz.ingresar(x, y, z) == True:
             if interfaz.valores_tablero(x, y) == False:
                 print('\nPosicion fija del tablero')
                 input('Pulsa una tecla para continuar...\n')
 
-        #if interfaz.verificar_columna_fila(x,y,z)  == False:
-            #print('\nEl valor se encuentra en la fila o columna')
-            #input('Pulsa una tecla para continuar...\n')
+        #if interfaz.ingresar(x, y, z) == True:
+            #if interfaz.valores_tablero(x, y) == True:
+                #if interfaz.verificar_columna_fila(x,y,z)  == True:
+                    #print('\nEl valor se encuentra en la fila o columna')
+                    #input('Pulsa una tecla para continuar...\n')
 
         for i in range(9):
             for j in range(9):
