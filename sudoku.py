@@ -10,8 +10,8 @@ class sudoku():
         return self.Tablero
 
     def ingresar(self, x, y, z):
-        if x <= 8 and y <= 8 and z <= 8:
-            if x >= 0 and y >= 0 and z >= 0:
+        if x >= 0 and y >= 0 and z >= 0:
+            if x <= 8 and y <= 8 and z <= 8:
                 return True
             else:
                 return False
