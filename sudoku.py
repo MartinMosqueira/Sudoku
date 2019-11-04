@@ -11,7 +11,7 @@ class sudoku():
 
     def ingresar(self, x, y, z):
         if x >= 0 and y >= 0 and z >= 0:
-            if x <= 8 and y <= 8 and z <= 8:
+            if x <= 9 and y <= 9 and z <= 9:
                 return True
             else:
                 return False
@@ -60,7 +60,3 @@ class sudoku():
                 if self.verificar_columna_fila(x, y, z):
                     if self.verificar_submatriz(x, y, z):
                         self.Tablero[y][x] = str(z)
-
-
-s=sudoku('53xx7xxxx6xx195xxxx98xxxx6x8xxx6xxx34xx8x3xx17xxx2xxx6x6xxxx28xxxx419xx5xxxx8xx79')
-#s=sudoku('531375555656195682195182163879868143483823461712527586165326283125419795895285794')
